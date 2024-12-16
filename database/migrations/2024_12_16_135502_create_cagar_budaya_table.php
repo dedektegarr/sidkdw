@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId("jenis_id")->constrained()->onUpdate("cascade")->onDelete("cascade");
             $table->foreignId("status_id")->constrained("status")->onUpdate("cascade")->onDelete("cascade");
             $table->string("nama_objek");
-            $table->string("sk_penetapan");
+            $table->string("sk_penetapan")->nullable();
             $table->string("desa_kelurahan");
             $table->string("kecamatan");
             $table->string("kabupaten_kota");
