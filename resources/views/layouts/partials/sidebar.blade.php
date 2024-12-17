@@ -144,12 +144,14 @@
                             CB</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Status</a>
+                        <a href="{{ route('status.index') }}"
+                            class="{{ is_active_route('status.index', 'bg-gray-100 dark:bg-gray-700', '') }} flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Status
+                            CB</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Domain</a>
+                        <a href="{{ route('domain.index') }}"
+                            class="{{ is_active_route('domain.index', 'bg-gray-100 dark:bg-gray-700', '') }} flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Domain
+                        </a>
                     </li>
                 </ul>
             </li>

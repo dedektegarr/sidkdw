@@ -12,3 +12,13 @@ Breadcrumbs::for('dashboard', function (BreadcrumbTrail $trail) {
 Breadcrumbs::for('jenis_cb', function (BreadcrumbTrail $trail) {
     $trail->push('Jenis Cagar Budaya', route('jenis.index'));
 });
+
+// Status
+Breadcrumbs::for('status_cb', function (BreadcrumbTrail $trail) {
+    $trail->push('Status Cagar Budaya', route('status.index'));
+});
+
+// Domain
+Breadcrumbs::for('domain', function (BreadcrumbTrail $trail) {
+    $trail->push('Domain', route('domain.index'));
+});

@@ -20,16 +20,14 @@
     @include('layouts.partials.sidebar')
 
     <div class="p-4 sm:ml-64">
-        <div class="mt-14">
+        <div class="mt-14 max-w-screen-xl mx-auto">
             <div class="flex items-center justify-between py-3 md:py-0 mb-4 md:mb-6 2xl:mb-8">
                 <h2
                     class="text-xl font-extrabold leading-none tracking-tight text-gray-900 md:text-2xl dark:text-white">
                     @yield('page')</h2>
                 @yield('breadcrumbs')
             </div>
-            <div class="max-w-screen-xl mx-auto">
-                @yield('content')
-            </div>
+            @yield('content')
         </div>
     </div>
 
