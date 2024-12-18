@@ -42,14 +42,14 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('status.index') }}"
-                            class="{{ is_active_route('status.index', 'bg-gray-100 dark:bg-gray-700', '') }} flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Status
-                            CB</a>
+                        <a href="{{ route('bengkulu.cb-provinsi') }}"
+                            class="{{ is_active_route('bengkulu.cb-provinsi', 'bg-gray-100 dark:bg-gray-700', '') }} flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                            CB Provinsi</a>
                     </li>
                     <li>
-                        <a href="{{ route('domain.index') }}"
-                            class="{{ is_active_route('domain.index', 'bg-gray-100 dark:bg-gray-700', '') }} flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Domain
-                        </a>
+                        <a href="{{ route('bengkulu.cb-kabupaten-kota') }}"
+                            class="{{ is_active_route('bengkulu.cb-kabupaten-kota', 'bg-gray-100 dark:bg-gray-700', '') }} flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                            CB Kab/Kota</a>
                     </li>
                 </ul>
             </li>

@@ -15,11 +15,22 @@ Route::delete("/cb/{cb}/destroy", [CagarBudayaController::class, "destroy"])->na
 Route::patch("/cb/{cb}/update", [CagarBudayaController::class, "update"])->name("cb.update");
 
 Route::prefix("bengkulu")->group(function () {
-
     Route::prefix("cb-nasional")->group(function () {
-        Route::get("/", [CagarBudayaController::class, "nasional"])->name("bengkulu.cb-nasional");
-        Route::get("/create", [CagarBudayaController::class, "create"])->name("bengkulu.cb-nasional.create");
-        Route::get("/{cb}/edit", [CagarBudayaController::class, "edit"])->name("bengkulu.cb-nasional.edit");
+        Route::get("/", [CagarBudayaController::class, "bengkuluNasional"])->name("bengkulu.cb-nasional");
+        Route::get("/create", [CagarBudayaController::class, "bengkuluNasionalCreate"])->name("bengkulu.cb-nasional.create");
+        Route::get("/{cb}/edit", [CagarBudayaController::class, "bengkuluNasionalEdit"])->name("bengkulu.cb-nasional.edit");
+    });
+
+    Route::prefix("cb-provinsi")->group(function () {
+        Route::get("/", [CagarBudayaController::class, "bengkuluProvinsi"])->name("bengkulu.cb-provinsi");
+        Route::get("/create", [CagarBudayaController::class, "bengkuluProvinsiCreate"])->name("bengkulu.cb-provinsi.create");
+        Route::get("/{cb}/edit", [CagarBudayaController::class, "bengkuluProvinsiEdit"])->name("bengkulu.cb-provinsi.edit");
+    });
+
+    Route::prefix("cb-kabupaten-kota")->group(function () {
+        Route::get("/", [CagarBudayaController::class, "bengkuluKota"])->name("bengkulu.cb-kabupaten-kota");
+        Route::get("/create", [CagarBudayaController::class, "bengkuluKotaCreate"])->name("bengkulu.cb-kabupaten-kota.create");
+        Route::get("/{cb}/edit", [CagarBudayaController::class, "bengkuluKotaEdit"])->name("bengkulu.cb-kabupaten-kota.edit");
     });
 });
 

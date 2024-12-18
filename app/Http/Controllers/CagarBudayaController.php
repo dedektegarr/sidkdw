@@ -9,14 +9,28 @@ use Illuminate\Http\Request;
 
 class CagarBudayaController extends Controller
 {
-    public function nasional()
+    // INDEX
+    public function bengkuluNasional()
     {
-        $data_cb = CagarBudaya::latest()->get();
+        $data_cb = CagarBudaya::where("level", "nasional")->get();
 
         return view("bengkulu.cagar-budaya.nasional.index", compact("data_cb"));
     }
+    public function bengkuluProvinsi()
+    {
+        $data_cb = CagarBudaya::where("level", "provinsi")->get();
 
-    public function create()
+        return view("bengkulu.cagar-budaya.provinsi.index", compact("data_cb"));
+    }
+    public function bengkuluKota()
+    {
+        $data_cb = CagarBudaya::where("level", "kabupaten_kota")->get();
+
+        return view("bengkulu.cagar-budaya.kota.index", compact("data_cb"));
+    }
+
+    // CREATE
+    public function bengkuluNasionalCreate()
     {
         $jenis = Jenis::latest()->get();
         $status = Status::latest()->get();
@@ -24,28 +38,75 @@ class CagarBudayaController extends Controller
         return view("bengkulu.cagar-budaya.nasional.create", compact("jenis", "status"));
     }
 
-    public function store(Request $request)
+    public function bengkuluProvinsiCreate()
     {
-        CagarBudaya::create($request->all());
+        $jenis = Jenis::latest()->get();
+        $status = Status::latest()->get();
 
-        flash()->success("Data berhasil ditambahkan.");
-        return redirect()->route("bengkulu.cb-nasional");
+        return view("bengkulu.cagar-budaya.provinsi.create", compact("jenis", "status"));
+    }
+    public function bengkuluKotaCreate()
+    {
+        $jenis = Jenis::latest()->get();
+        $status = Status::latest()->get();
+
+        return view("bengkulu.cagar-budaya.kota.create", compact("jenis", "status"));
     }
 
-    public function edit(CagarBudaya $cb)
+    // EDIT
+    public function bengkuluNasionalEdit(CagarBudaya $cb)
     {
         $jenis = Jenis::latest()->get();
         $status = Status::latest()->get();
 
         return view("bengkulu.cagar-budaya.nasional.edit", compact("cb", "jenis", "status"));
     }
+    public function bengkuluProvinsiEdit(CagarBudaya $cb)
+    {
+        $jenis = Jenis::latest()->get();
+        $status = Status::latest()->get();
+
+        return view("bengkulu.cagar-budaya.provinsi.edit", compact("cb", "jenis", "status"));
+    }
+    public function bengkuluKotaEdit(CagarBudaya $cb)
+    {
+        $jenis = Jenis::latest()->get();
+        $status = Status::latest()->get();
+
+        return view("bengkulu.cagar-budaya.kota.edit", compact("cb", "jenis", "status"));
+    }
+
+    // CRUD METHOD
+    public function store(Request $request)
+    {
+        CagarBudaya::create($request->all());
+
+        $redirectRoute = "bengkulu.cb-nasional";
+
+        if ($request->level === "provinsi") {
+            $redirectRoute = "bengkulu.cb-provinsi";
+        } elseif ($request->level === "kabupaten_kota") {
+            $redirectRoute = "bengkulu.cb-kabupaten-kota";
+        }
+
+        flash()->success("Data berhasil ditambahkan.");
+        return redirect()->route($redirectRoute);
+    }
 
     public function update(CagarBudaya $cb, Request $request)
     {
         $cb->update($request->all());
 
+        $redirectRoute = "bengkulu.cb-nasional";
+
+        if ($request->level === "provinsi") {
+            $redirectRoute = "bengkulu.cb-provinsi";
+        } elseif ($request->level === "kabupaten_kota") {
+            $redirectRoute = "bengkulu.cb-kabupaten-kota";
+        }
+
         flash()->success("Data berhasil diubah.");
-        return redirect()->route("bengkulu.cb-nasional");
+        return redirect()->route($redirectRoute);
     }
 
     public function destroy(CagarBudaya $cb)

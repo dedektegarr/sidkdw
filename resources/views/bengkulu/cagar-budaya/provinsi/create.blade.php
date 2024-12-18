@@ -1,10 +1,10 @@
 @extends('layouts.main')
 @section('page', 'Tambah Cagar Budaya Nasional')
-@section('breadcrumbs', Breadcrumbs::render('bengkulu.cb-nasional.create'))
+@section('breadcrumbs', Breadcrumbs::render('bengkulu.cb-provinsi.create'))
 @section('content')
     <form method="POST" action="{{ route('cb.store') }}" class="max-w-lg mx-auto">
         @csrf
-        <input type="hidden" name="level" value="nasional">
+        <input type="hidden" name="level" value="provinsi">
         <div class="mb-5">
             <label for="jenis_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jenis</label>
             <select id="jenis_id" name="jenis_id"

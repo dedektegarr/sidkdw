@@ -1,17 +1,19 @@
 @extends('layouts.main')
-@section('page', 'Tambah Cagar Budaya Nasional')
-@section('breadcrumbs', Breadcrumbs::render('bengkulu.cb-nasional.create'))
+@section('page', 'Edit Cagar Budaya Kab/Kota')
+@section('breadcrumbs', Breadcrumbs::render('bengkulu.cb-kabupaten-kota.edit', $cb->id))
 @section('content')
-    <form method="POST" action="{{ route('cb.store') }}" class="max-w-lg mx-auto">
+    <form method="POST" action="{{ route('cb.update', $cb->id) }}" class="max-w-lg mx-auto">
         @csrf
-        <input type="hidden" name="level" value="nasional">
+        @method('PATCH')
+        <input type="hidden" name="level" value="kabupaten_kota">
         <div class="mb-5">
             <label for="jenis_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jenis</label>
             <select id="jenis_id" name="jenis_id"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option selected value="">Pilih jenis CB</option>
                 @foreach ($jenis as $item)
-                    <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                    <option @if ($cb->jenis_id === $item->id) selected @endif value="{{ $item->id }}">
+                        {{ $item->nama }}</option>
                 @endforeach
             </select>
             @error('jenis_id')
@@ -34,7 +36,7 @@
 
         <div class="mb-5">
             <label for="nama_objek" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Objek</label>
-            <input type="text" id="nama_objek" name="nama_objek" value="{{ old('nama_objek') }}"
+            <input type="text" id="nama_objek" name="nama_objek" value="{{ $cb->nama_objek ?? old('nama_objek') }}"
                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                 required />
             @error('nama_objek')
@@ -44,7 +46,8 @@
         <div class="mb-5">
             <label for="sk_penetapan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">SK
                 Penetapan</label>
-            <input type="text" id="sk_penetapan" name="sk_penetapan" value="{{ old('penetapan_sk') }}"
+            <input type="text" id="sk_penetapan" name="sk_penetapan"
+                value="{{ $cb->sk_penetapan ?? old('penetapan_sk') }}"
                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                 required />
             @error('sk_penetapan')
