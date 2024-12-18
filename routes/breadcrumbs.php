@@ -8,6 +8,14 @@ Breadcrumbs::for('dashboard', function (BreadcrumbTrail $trail) {
     $trail->push('Dashboard', route('dashboard.index'));
 });
 
+Breadcrumbs::for('bengkulu.cb-nasional', function (BreadcrumbTrail $trail) {
+    $trail->push('CB Nasional Bengkulu', route('bengkulu.cb-nasional'));
+});
+Breadcrumbs::for('bengkulu.cb-nasional.create', function (BreadcrumbTrail $trail) {
+    $trail->parent("bengkulu.cb-nasional");
+    $trail->push('Tambah', route('bengkulu.cb-nasional.create'));
+});
+
 // Jenis
 Breadcrumbs::for('jenis_cb', function (BreadcrumbTrail $trail) {
     $trail->push('Jenis Cagar Budaya', route('jenis.index'));

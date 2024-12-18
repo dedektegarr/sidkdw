@@ -19,7 +19,7 @@
             <li>
                 <button type="button"
                     class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                    aria-controls="dropdown-bengkulu" data-collapse-toggle="dropdown-bengkulu">
+                    aria-controls="dropdown-cb" data-collapse-toggle="dropdown-cb">
                     <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                         <path fill-rule="evenodd"
@@ -34,36 +34,22 @@
                             d="m1 1 4 4 4-4" />
                     </svg>
                 </button>
-                <ul id="dropdown-bengkulu" class="hidden py-2 space-y-2">
+                <ul id="dropdown-cb" class="{{ Request::is('bengkulu*') ? 'block' : 'hidden' }} py-2 space-y-2">
                     <li>
-                        <a href="#"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">CB
-                            Nasional</a>
+                        <a href="{{ route('bengkulu.cb-nasional') }}"
+                            class="{{ is_active_route('bengkulu.cb-nasional', 'bg-gray-100 dark:bg-gray-700', '') }} flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">CB
+                            Nasional
+                        </a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">CB
-                            Provinsi</a>
+                        <a href="{{ route('status.index') }}"
+                            class="{{ is_active_route('status.index', 'bg-gray-100 dark:bg-gray-700', '') }} flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Status
+                            CB</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">CB
-                            Kabupaten/Kota</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
-                            WBTB</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
-                            ODCB</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
-                            OPK</a>
+                        <a href="{{ route('domain.index') }}"
+                            class="{{ is_active_route('domain.index', 'bg-gray-100 dark:bg-gray-700', '') }} flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Domain
+                        </a>
                     </li>
                 </ul>
             </li>
