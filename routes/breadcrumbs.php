@@ -48,6 +48,19 @@ Breadcrumbs::for('bengkulu.cb-kabupaten-kota.edit', function (BreadcrumbTrail $t
     $trail->push('Edit', route('bengkulu.cb-kabupaten-kota.edit', $cb));
 });
 
+// Bengkulu ODCB
+Breadcrumbs::for('bengkulu.odcb', function (BreadcrumbTrail $trail) {
+    $trail->push('ODCB Bengkulu', route('bengkulu.odcb'));
+});
+Breadcrumbs::for('bengkulu.odcb.create', function (BreadcrumbTrail $trail) {
+    $trail->parent("bengkulu.odcb");
+    $trail->push('Tambah', route('bengkulu.odcb.create'));
+});
+Breadcrumbs::for('bengkulu.odcb.edit', function (BreadcrumbTrail $trail, $cb) {
+    $trail->parent("bengkulu.odcb");
+    $trail->push('Edit', route('bengkulu.odcb.edit', $cb));
+});
+
 // Jenis
 Breadcrumbs::for('jenis_cb', function (BreadcrumbTrail $trail) {
     $trail->push('Jenis Cagar Budaya', route('jenis.index'));

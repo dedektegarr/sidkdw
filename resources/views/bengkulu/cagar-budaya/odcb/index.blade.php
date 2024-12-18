@@ -1,10 +1,10 @@
 @extends('layouts.main')
-@section('page', 'Cagar Budaya Nasional')
-@section('breadcrumbs', Breadcrumbs::render('bengkulu.cb-nasional'))
+@section('page', 'ODCB')
+@section('breadcrumbs', Breadcrumbs::render('bengkulu.odcb'))
 @section('content')
-    <a href="{{ route('bengkulu.cb-nasional.create') }}"
+    <a href="{{ route('bengkulu.odcb.create') }}"
         class="inline-block mb-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-        Tambah CB Nasional
+        Tambah ODCB
     </a>
 
     <table id="default-table">
@@ -23,16 +23,6 @@
                 <th>
                     <span class="flex items-center">
                         Jenis
-                        <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
-                            height="24" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="m8 15 4 4 4-4m0-6-4-4-4 4" />
-                        </svg>
-                    </span>
-                </th>
-                <th>
-                    <span class="flex items-center">
-                        SK Penetapan
                         <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
                             height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -87,12 +77,11 @@
                 <tr>
                     <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $cb->nama_objek }}</td>
                     <td>{{ $cb->jenis->nama }}</td>
-                    <td>{{ $cb->sk_penetapan }}</td>
                     <td>{{ $cb->desa_kelurahan }}</td>
                     <td>{{ $cb->kecamatan }}</td>
                     <td>{{ $cb->kabupaten_kota }}</td>
                     <td>
-                        <a href="{{ route('bengkulu.cb-nasional.edit', $cb->id) }}"
+                        <a href="{{ route('bengkulu.odcb.edit', $cb->id) }}"
                             class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">
                             <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
                                 height="24" fill="currentColor" viewBox="0 0 24 24">

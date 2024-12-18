@@ -6,6 +6,7 @@
         @csrf
         @method('PATCH')
         <input type="hidden" name="level" value="provinsi">
+        <input type="hidden" name="status_id" value="1">
         <div class="mb-5">
             <label for="jenis_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jenis</label>
             <select id="jenis_id" name="jenis_id"

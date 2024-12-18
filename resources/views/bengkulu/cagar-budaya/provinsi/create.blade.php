@@ -1,10 +1,12 @@
 @extends('layouts.main')
-@section('page', 'Tambah Cagar Budaya Nasional')
+@section('page', 'Tambah Cagar Budaya Provinsi')
 @section('breadcrumbs', Breadcrumbs::render('bengkulu.cb-provinsi.create'))
 @section('content')
     <form method="POST" action="{{ route('cb.store') }}" class="max-w-lg mx-auto">
         @csrf
         <input type="hidden" name="level" value="provinsi">
+        <input type="hidden" name="status_id" value="1">
+
         <div class="mb-5">
             <label for="jenis_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jenis</label>
             <select id="jenis_id" name="jenis_id"
@@ -18,20 +20,6 @@
                 <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</p>
             @enderror
         </div>
-        <div class="mb-5">
-            <label for="status_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jenis</label>
-            <select id="status_id" name="status_id"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                @foreach ($status as $item)
-                    <option @if (!$loop->first) disabled @endif value="{{ $item->id }}">
-                        {{ $item->nama }}</option>
-                @endforeach
-            </select>
-            @error('status_id')
-                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</p>
-            @enderror
-        </div>
-
         <div class="mb-5">
             <label for="nama_objek" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Objek</label>
             <input type="text" id="nama_objek" name="nama_objek" value="{{ old('nama_objek') }}"

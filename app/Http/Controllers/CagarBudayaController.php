@@ -28,6 +28,12 @@ class CagarBudayaController extends Controller
 
         return view("bengkulu.cagar-budaya.kota.index", compact("data_cb"));
     }
+    public function bengkuluOdcb()
+    {
+        $data_cb = CagarBudaya::where("status_id", 2)->get();
+
+        return view("bengkulu.cagar-budaya.odcb.index", compact("data_cb"));
+    }
 
     // CREATE
     public function bengkuluNasionalCreate()
@@ -52,6 +58,13 @@ class CagarBudayaController extends Controller
 
         return view("bengkulu.cagar-budaya.kota.create", compact("jenis", "status"));
     }
+    public function bengkuluOdcbCreate()
+    {
+        $jenis = Jenis::latest()->get();
+        $status = Status::latest()->get();
+
+        return view("bengkulu.cagar-budaya.odcb.create", compact("jenis", "status"));
+    }
 
     // EDIT
     public function bengkuluNasionalEdit(CagarBudaya $cb)
@@ -75,6 +88,13 @@ class CagarBudayaController extends Controller
 
         return view("bengkulu.cagar-budaya.kota.edit", compact("cb", "jenis", "status"));
     }
+    public function bengkuluOdcbEdit(CagarBudaya $odcb)
+    {
+        $jenis = Jenis::latest()->get();
+        $status = Status::latest()->get();
+
+        return view("bengkulu.cagar-budaya.odcb.edit", compact("odcb", "jenis", "status"));
+    }
 
     // CRUD METHOD
     public function store(Request $request)
@@ -87,6 +107,8 @@ class CagarBudayaController extends Controller
             $redirectRoute = "bengkulu.cb-provinsi";
         } elseif ($request->level === "kabupaten_kota") {
             $redirectRoute = "bengkulu.cb-kabupaten-kota";
+        } else {
+            $redirectRoute = "bengkulu.odcb";
         }
 
         flash()->success("Data berhasil ditambahkan.");
@@ -103,6 +125,8 @@ class CagarBudayaController extends Controller
             $redirectRoute = "bengkulu.cb-provinsi";
         } elseif ($request->level === "kabupaten_kota") {
             $redirectRoute = "bengkulu.cb-kabupaten-kota";
+        } else {
+            $redirectRoute = "bengkulu.odcb";
         }
 
         flash()->success("Data berhasil diubah.");

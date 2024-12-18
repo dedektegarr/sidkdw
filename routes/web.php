@@ -32,6 +32,12 @@ Route::prefix("bengkulu")->group(function () {
         Route::get("/create", [CagarBudayaController::class, "bengkuluKotaCreate"])->name("bengkulu.cb-kabupaten-kota.create");
         Route::get("/{cb}/edit", [CagarBudayaController::class, "bengkuluKotaEdit"])->name("bengkulu.cb-kabupaten-kota.edit");
     });
+
+    Route::prefix("odcb")->group(function () {
+        Route::get("/", [CagarBudayaController::class, "bengkuluOdcb"])->name("bengkulu.odcb");
+        Route::get("/create", [CagarBudayaController::class, "bengkuluOdcbCreate"])->name("bengkulu.odcb.create");
+        Route::get("/{odcb}/edit", [CagarBudayaController::class, "bengkuluOdcbEdit"])->name("bengkulu.odcb.edit");
+    });
 });
 
 // MASTER DATA
