@@ -133,7 +133,7 @@
         });
 
         async function init() {
-            const response = await fetch("https://www.emsifa.com/api-wilayah-indonesia/api/regencies/17.json");
+            const response = await fetch("https://www.emsifa.com/api-wilayah-indonesia/api/regencies/18.json");
             const dataKabupatenKota = await response.json();
 
             for (data of dataKabupatenKota) {

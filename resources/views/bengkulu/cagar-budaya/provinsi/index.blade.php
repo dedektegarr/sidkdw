@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('page', 'Cagar Budaya Provinsi')
+@section('page', 'Cagar Budaya Provinsi Bengkulu')
 @section('breadcrumbs', Breadcrumbs::render('bengkulu.cb-provinsi'))
 @section('content')
     <a href="{{ route('bengkulu.cb-provinsi.create') }}"

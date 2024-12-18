@@ -5,7 +5,7 @@
     <form method="POST" action="{{ route('cb.update', $cb->id) }}" class="max-w-lg mx-auto">
         @csrf
         @method('PATCH')
-        <input type="hidden" name="level" value="provinsi">
+        <input type="hidden" name="level" value="nasional">
         <input type="hidden" name="status_id" value="1">
         <div class="mb-5">
             <label for="jenis_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jenis</label>
@@ -146,7 +146,7 @@
         });
 
         async function init() {
-            const response = await fetch("https://www.emsifa.com/api-wilayah-indonesia/api/regencies/17.json");
+            const response = await fetch("https://www.emsifa.com/api-wilayah-indonesia/api/regencies/18.json");
             const dataKabupatenKota = await response.json();
 
             for (data of dataKabupatenKota) {
