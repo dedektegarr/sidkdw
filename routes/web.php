@@ -3,6 +3,7 @@
 use App\Http\Controllers\CagarBudayaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DomainController;
+use App\Http\Controllers\ImportController;
 use App\Http\Controllers\JenisController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\WbtbController;
@@ -112,4 +113,8 @@ Route::prefix("data-master")->group(function () {
     Route::post("/domain", [DomainController::class, "store"])->name("domain.store");
     Route::patch("/domain/{domain}/update", [DomainController::class, "update"])->name("domain.update");
     Route::delete("/domain/{domain}/destroy", [DomainController::class, "destroy"])->name("domain.destroy");
+});
+
+Route::prefix("import")->group(function () {
+    Route::get("/cagar-budaya", [ImportController::class, "cagarBudaya"])->name("import.cb");
 });
