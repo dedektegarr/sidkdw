@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId("domain_id")->constrained("domain")->onDelete("cascade")->onUpdate("cascade");
             $table->string("nama_karya");
-            $table->integer("no_daftar");
+            $table->integer("no_daftar")->nullable();
             $table->string("tahun");
             $table->string("sebaran");
             $table->string("keterangan");

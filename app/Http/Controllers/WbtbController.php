@@ -15,6 +15,12 @@ class WbtbController extends Controller
 
         return view("bengkulu.wbtb.index", compact("data_wbtb"));
     }
+    public function bengkuluOpk()
+    {
+        $data_opk = Wbtb::where("no_daftar", null)->where("sebaran", "Bengkulu")->get();
+
+        return view("bengkulu.opk.index", compact("data_opk"));
+    }
 
     // CREATE
     public function bengkuluWbtbCreate()
@@ -22,6 +28,12 @@ class WbtbController extends Controller
         $domain = Domain::latest()->get();
 
         return view("bengkulu.wbtb.create", compact("domain"));
+    }
+    public function bengkuluOpkCreate()
+    {
+        $domain = Domain::latest()->get();
+
+        return view("bengkulu.opk.create", compact("domain"));
     }
 
     // EDIT
@@ -31,22 +43,40 @@ class WbtbController extends Controller
 
         return view("bengkulu.wbtb.edit", compact("wbtb", "domain"));
     }
+    public function bengkuluOpkEdit(Wbtb $opk)
+    {
+        $domain = Domain::latest()->get();
+
+        return view("bengkulu.opk.edit", compact("opk", "domain"));
+    }
 
     // CRUD METHOD
     public function store(Request $request)
     {
         Wbtb::create($request->all());
 
+        $redirectPath = "bengkulu.wbtb";
+
+        if ($request->page === "opk") {
+            $redirectPath = "bengkulu.opk";
+        }
+
         flash()->success("Data berhasil ditambahkan.");
-        return redirect()->route("bengkulu.wbtb");
+        return redirect()->route($redirectPath);
     }
 
     public function update(Wbtb $wbtb, Request $request)
     {
         $wbtb->update($request->all());
 
+        $redirectPath = "bengkulu.wbtb";
+
+        if ($request->page === "opk") {
+            $redirectPath = "bengkulu.opk";
+        }
+
         flash()->success("Data berhasil ditambahkan.");
-        return redirect()->route("bengkulu.wbtb");
+        return redirect()->route($redirectPath);
     }
 
     public function destroy(Wbtb $wbtb)

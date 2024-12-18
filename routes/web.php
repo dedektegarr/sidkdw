@@ -50,6 +50,12 @@ Route::prefix("bengkulu")->group(function () {
         Route::get("/create", [WbtbController::class, "bengkuluWbtbCreate"])->name("bengkulu.wbtb.create");
         Route::get("/{wbtb}/edit", [WbtbController::class, "bengkuluWbtbEdit"])->name("bengkulu.wbtb.edit");
     });
+
+    Route::prefix("opk")->group(function () {
+        Route::get("/", [WbtbController::class, "bengkuluOpk"])->name("bengkulu.opk");
+        Route::get("/create", [WbtbController::class, "bengkuluOpkCreate"])->name("bengkulu.opk.create");
+        Route::get("/{opk}/edit", [WbtbController::class, "bengkuluOpkEdit"])->name("bengkulu.opk.edit");
+    });
 });
 
 // MASTER DATA
