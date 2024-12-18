@@ -56,6 +56,11 @@
                             class="{{ is_active_route('bengkulu.odcb', 'bg-gray-100 dark:bg-gray-700', '') }} flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
                             ODCB</a>
                     </li>
+                    <li>
+                        <a href="{{ route('bengkulu.wbtb') }}"
+                            class="{{ is_active_route('bengkulu.wbtb', 'bg-gray-100 dark:bg-gray-700', '') }} flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                            WBTB</a>
+                    </li>
                 </ul>
             </li>
             <li>

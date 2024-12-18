@@ -5,14 +5,20 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DomainController;
 use App\Http\Controllers\JenisController;
 use App\Http\Controllers\StatusController;
+use App\Http\Controllers\WbtbController;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, "index"])->name("dashboard.index");
 Route::get('/dashboard', [DashboardController::class, "index"])->name("dashboard.index");
+
 Route::post("/cb/store", [CagarBudayaController::class, "store"])->name("cb.store");
 Route::delete("/cb/{cb}/destroy", [CagarBudayaController::class, "destroy"])->name("cb.destroy");
 Route::patch("/cb/{cb}/update", [CagarBudayaController::class, "update"])->name("cb.update");
+
+Route::post("/wbtb/store", [WbtbController::class, "store"])->name("wbtb.store");
+Route::delete("/wbtb/{wbtb}/destroy", [WbtbController::class, "destroy"])->name("wbtb.destroy");
+Route::patch("/wbtb/{wbtb}/update", [WbtbController::class, "update"])->name("wbtb.update");
 
 Route::prefix("bengkulu")->group(function () {
     Route::prefix("cb-nasional")->group(function () {
@@ -37,6 +43,12 @@ Route::prefix("bengkulu")->group(function () {
         Route::get("/", [CagarBudayaController::class, "bengkuluOdcb"])->name("bengkulu.odcb");
         Route::get("/create", [CagarBudayaController::class, "bengkuluOdcbCreate"])->name("bengkulu.odcb.create");
         Route::get("/{odcb}/edit", [CagarBudayaController::class, "bengkuluOdcbEdit"])->name("bengkulu.odcb.edit");
+    });
+
+    Route::prefix("wbtb")->group(function () {
+        Route::get("/", [WbtbController::class, "bengkuluWbtb"])->name("bengkulu.wbtb");
+        Route::get("/create", [WbtbController::class, "bengkuluWbtbCreate"])->name("bengkulu.wbtb.create");
+        Route::get("/{wbtb}/edit", [WbtbController::class, "bengkuluWbtbEdit"])->name("bengkulu.wbtb.edit");
     });
 });
 

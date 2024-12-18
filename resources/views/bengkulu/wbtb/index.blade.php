@@ -1,10 +1,10 @@
 @extends('layouts.main')
-@section('page', 'ODCB Bengkulu')
+@section('page', 'WBTB Bengkulu')
 @section('breadcrumbs', Breadcrumbs::render('bengkulu.odcb'))
 @section('content')
-    <a href="{{ route('bengkulu.odcb.create') }}"
+    <a href="{{ route('bengkulu.wbtb.create') }}"
         class="inline-block mb-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-        Tambah ODCB
+        Tambah WBTB
     </a>
 
     <table id="default-table">
@@ -12,7 +12,7 @@
             <tr>
                 <th>
                     <span class="flex items-center">
-                        Nama Objek
+                        Nama Karya Budaya
                         <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
                             height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -22,7 +22,7 @@
                 </th>
                 <th>
                     <span class="flex items-center">
-                        Jenis
+                        No. Daftar
                         <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
                             height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -32,7 +32,7 @@
                 </th>
                 <th>
                     <span class="flex items-center">
-                        Desa/Kelurahan
+                        Tahun
                         <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
                             height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -42,7 +42,7 @@
                 </th>
                 <th>
                     <span class="flex items-center">
-                        Kecamatan
+                        Sebaran
                         <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
                             height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -52,7 +52,17 @@
                 </th>
                 <th>
                     <span class="flex items-center">
-                        Kabupaten/Kota
+                        Domain
+                        <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m8 15 4 4 4-4m0-6-4-4-4 4" />
+                        </svg>
+                    </span>
+                </th>
+                <th>
+                    <span class="flex items-center">
+                        Keterangan
                         <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
                             height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -73,15 +83,16 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($data_cb as $cb)
+            @foreach ($data_wbtb as $wbtb)
                 <tr>
-                    <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $cb->nama_objek }}</td>
-                    <td>{{ $cb->jenis->nama }}</td>
-                    <td>{{ $cb->desa_kelurahan }}</td>
-                    <td>{{ $cb->kecamatan }}</td>
-                    <td>{{ $cb->kabupaten_kota }}</td>
+                    <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $wbtb->nama_karya }}</td>
+                    <td>{{ $wbtb->no_daftar }}</td>
+                    <td>{{ $wbtb->tahun }}</td>
+                    <td>{{ $wbtb->sebaran }}</td>
+                    <td>{{ $wbtb->domain->nama }}</td>
+                    <td>{{ $wbtb->keterangan }}</td>
                     <td>
-                        <a href="{{ route('bengkulu.odcb.edit', $cb->id) }}"
+                        <a href="{{ route('bengkulu.wbtb.edit', $wbtb->id) }}"
                             class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">
                             <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
                                 height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -95,8 +106,8 @@
 
                             <span class="sr-only">Icon description</span>
                         </a>
-                        <button type="button" data-modal-target="delete-modal-{{ $cb->id }}"
-                            data-modal-toggle="delete-modal-{{ $cb->id }}"
+                        <button type="button" data-modal-target="delete-modal-{{ $wbtb->id }}"
+                            data-modal-toggle="delete-modal-{{ $wbtb->id }}"
                             class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
 
                             <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
@@ -112,13 +123,13 @@
                 </tr>
 
                 {{-- DIALOG MODAL --}}
-                <div id="delete-modal-{{ $cb->id }}" tabindex="-1"
+                <div id="delete-modal-{{ $wbtb->id }}" tabindex="-1"
                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                     <div class="relative p-4 w-full max-w-md max-h-full">
                         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                             <button type="button"
                                 class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                data-modal-hide="delete-modal-{{ $cb->id }}">
+                                data-modal-hide="delete-modal-{{ $wbtb->id }}">
                                 <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                     fill="none" viewBox="0 0 14 14">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -135,7 +146,7 @@
                                 <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Apa kamu yakin ingin
                                     menghapus
                                     data ini?</h3>
-                                <form action="{{ route('cb.destroy', $cb->id) }}" method="POST">
+                                <form action="{{ route('wbtb.destroy', $wbtb->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit"
@@ -143,7 +154,7 @@
                                         Iya
                                     </button>
                                 </form>
-                                <button data-modal-hide="delete-modal-{{ $cb->id }}" type="button"
+                                <button data-modal-hide="delete-modal-{{ $wbtb->id }}" type="button"
                                     class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Tidak</button>
                             </div>
                         </div>

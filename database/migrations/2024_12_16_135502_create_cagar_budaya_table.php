@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string("kecamatan");
             $table->string("kabupaten_kota");
             $table->string("provinsi");
-            $table->enum("level", ["nasional", "provinsi", "kabupaten_kota"]);
+            $table->enum("level", ["nasional", "provinsi", "kabupaten_kota"])->nullable()->default(null);
             $table->timestamps();
         });
     }

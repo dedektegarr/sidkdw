@@ -25,7 +25,7 @@
                 <h2
                     class="text-xl font-extrabold leading-none tracking-tight text-gray-900 md:text-2xl dark:text-white">
                     @yield('page')</h2>
-                @yield('breadcrumbs')
+                {{-- @yield('breadcrumbs') --}}
             </div>
             @yield('content')
         </div>

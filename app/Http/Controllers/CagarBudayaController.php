@@ -103,7 +103,9 @@ class CagarBudayaController extends Controller
 
         $redirectRoute = "bengkulu.cb-nasional";
 
-        if ($request->level === "provinsi") {
+        if ($request->level === "nasional") {
+            $redirectRoute = "bengkulu.cb-nasional";
+        } elseif ($request->level === "provinsi") {
             $redirectRoute = "bengkulu.cb-provinsi";
         } elseif ($request->level === "kabupaten_kota") {
             $redirectRoute = "bengkulu.cb-kabupaten-kota";
@@ -120,8 +122,9 @@ class CagarBudayaController extends Controller
         $cb->update($request->all());
 
         $redirectRoute = "bengkulu.cb-nasional";
-
-        if ($request->level === "provinsi") {
+        if ($request->level === "nasional") {
+            $redirectRoute = "bengkulu.cb-nasional";
+        } elseif ($request->level === "provinsi") {
             $redirectRoute = "bengkulu.cb-provinsi";
         } elseif ($request->level === "kabupaten_kota") {
             $redirectRoute = "bengkulu.cb-kabupaten-kota";
