@@ -21,6 +21,18 @@ class WbtbController extends Controller
 
         return view("bengkulu.opk.index", compact("data_opk"));
     }
+    public function lampungWbtb()
+    {
+        $data_wbtb = Wbtb::where("no_daftar", "!=", null)->where("sebaran", "Lampung")->get();
+
+        return view("lampung.wbtb.index", compact("data_wbtb"));
+    }
+    public function lampungOpk()
+    {
+        $data_opk = Wbtb::where("no_daftar", null)->where("sebaran", "Lampung")->get();
+
+        return view("lampung.opk.index", compact("data_opk"));
+    }
 
     // CREATE
     public function bengkuluWbtbCreate()

@@ -68,6 +68,7 @@
                     </li>
                 </ul>
             </li>
+
             <li>
                 <button type="button"
                     class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
@@ -86,39 +87,41 @@
                             d="m1 1 4 4 4-4" />
                     </svg>
                 </button>
-                <ul id="dropdown-lampung" class="hidden py-2 space-y-2">
+                <ul id="dropdown-lampung" class="{{ Request::is('lampung*') ? 'block' : 'hidden' }} py-2 space-y-2">
                     <li>
-                        <a href="#"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">CB
-                            Nasional</a>
+                        <a href="{{ route('lampung.cb-nasional') }}"
+                            class="{{ is_active_route('lampung.cb-nasional', 'bg-gray-100 dark:bg-gray-700', '') }} flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">CB
+                            Nasional
+                        </a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">CB
-                            Provinsi</a>
+                        <a href="{{ route('lampung.cb-provinsi') }}"
+                            class="{{ is_active_route('lampung.cb-provinsi', 'bg-gray-100 dark:bg-gray-700', '') }} flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                            CB Provinsi</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">CB
-                            Kabupaten/Kota</a>
+                        <a href="{{ route('lampung.cb-kabupaten-kota') }}"
+                            class="{{ is_active_route('lampung.cb-kabupaten-kota', 'bg-gray-100 dark:bg-gray-700', '') }} flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                            CB Kab/Kota</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
-                            WBTB</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                        <a href="{{ route('lampung.odcb') }}"
+                            class="{{ is_active_route('lampung.odcb', 'bg-gray-100 dark:bg-gray-700', '') }} flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
                             ODCB</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                        <a href="{{ route('lampung.wbtb') }}"
+                            class="{{ is_active_route('lampung.wbtb', 'bg-gray-100 dark:bg-gray-700', '') }} flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                            WBTB</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('lampung.opk') }}"
+                            class="{{ is_active_route('lampung.opk', 'bg-gray-100 dark:bg-gray-700', '') }} flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
                             OPK</a>
                     </li>
                 </ul>
             </li>
+
             <li>
                 <button type="button"
                     class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"

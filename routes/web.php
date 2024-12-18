@@ -58,6 +58,44 @@ Route::prefix("bengkulu")->group(function () {
     });
 });
 
+Route::prefix("lampung")->group(function () {
+    Route::prefix("cb-nasional")->group(function () {
+        Route::get("/", [CagarBudayaController::class, "lampungNasional"])->name("lampung.cb-nasional");
+        Route::get("/create", [CagarBudayaController::class, "lampungNasionalCreate"])->name("lampung.cb-nasional.create");
+        Route::get("/{cb}/edit", [CagarBudayaController::class, "lampungNasionalEdit"])->name("lampung.cb-nasional.edit");
+    });
+
+    Route::prefix("cb-provinsi")->group(function () {
+        Route::get("/", [CagarBudayaController::class, "lampungProvinsi"])->name("lampung.cb-provinsi");
+        Route::get("/create", [CagarBudayaController::class, "lampungProvinsiCreate"])->name("lampung.cb-provinsi.create");
+        Route::get("/{cb}/edit", [CagarBudayaController::class, "lampungProvinsiEdit"])->name("lampung.cb-provinsi.edit");
+    });
+
+    Route::prefix("cb-kabupaten-kota")->group(function () {
+        Route::get("/", [CagarBudayaController::class, "lampungKota"])->name("lampung.cb-kabupaten-kota");
+        Route::get("/create", [CagarBudayaController::class, "lampungKotaCreate"])->name("lampung.cb-kabupaten-kota.create");
+        Route::get("/{cb}/edit", [CagarBudayaController::class, "lampungKotaEdit"])->name("lampung.cb-kabupaten-kota.edit");
+    });
+
+    Route::prefix("odcb")->group(function () {
+        Route::get("/", [CagarBudayaController::class, "lampungOdcb"])->name("lampung.odcb");
+        Route::get("/create", [CagarBudayaController::class, "lampungOdcbCreate"])->name("lampung.odcb.create");
+        Route::get("/{odcb}/edit", [CagarBudayaController::class, "lampungOdcbEdit"])->name("lampung.odcb.edit");
+    });
+
+    Route::prefix("wbtb")->group(function () {
+        Route::get("/", [WbtbController::class, "lampungWbtb"])->name("lampung.wbtb");
+        Route::get("/create", [WbtbController::class, "lampungWbtbCreate"])->name("lampung.wbtb.create");
+        Route::get("/{wbtb}/edit", [WbtbController::class, "lampungWbtbEdit"])->name("lampung.wbtb.edit");
+    });
+
+    Route::prefix("opk")->group(function () {
+        Route::get("/", [WbtbController::class, "lampungOpk"])->name("lampung.opk");
+        Route::get("/create", [WbtbController::class, "lampungOpkCreate"])->name("lampung.opk.create");
+        Route::get("/{opk}/edit", [WbtbController::class, "lampungOpkEdit"])->name("lampung.opk.edit");
+    });
+});
+
 // MASTER DATA
 Route::prefix("data-master")->group(function () {
     Route::get("/jenis-cb", [JenisController::class, "index"])->name("jenis.index");

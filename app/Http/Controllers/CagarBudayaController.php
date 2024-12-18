@@ -34,6 +34,30 @@ class CagarBudayaController extends Controller
 
         return view("bengkulu.cagar-budaya.odcb.index", compact("data_cb"));
     }
+    public function lampungNasional()
+    {
+        $data_cb = CagarBudaya::where("level", "nasional")->get();
+
+        return view("lampung.cagar-budaya.nasional.index", compact("data_cb"));
+    }
+    public function lampungProvinsi()
+    {
+        $data_cb = CagarBudaya::where("level", "provinsi")->get();
+
+        return view("lampung.cagar-budaya.provinsi.index", compact("data_cb"));
+    }
+    public function lampungKota()
+    {
+        $data_cb = CagarBudaya::where("level", "kabupaten_kota")->get();
+
+        return view("lampung.cagar-budaya.kota.index", compact("data_cb"));
+    }
+    public function lampungOdcb()
+    {
+        $data_cb = CagarBudaya::where("status_id", 2)->get();
+
+        return view("lampung.cagar-budaya.odcb.index", compact("data_cb"));
+    }
 
     // CREATE
     public function bengkuluNasionalCreate()
