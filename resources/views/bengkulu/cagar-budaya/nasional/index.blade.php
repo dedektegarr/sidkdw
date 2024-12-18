@@ -103,8 +103,7 @@
                     <td>{{ $cb->kecamatan }}</td>
                     <td>{{ $cb->kabupaten_kota }}</td>
                     <td>
-                        <button type="button" data-modal-target="edit-modal-{{ $cb->id }}"
-                            data-modal-toggle="edit-modal-{{ $cb->id }}"
+                        <a href="{{ route('bengkulu.cb-nasional.edit', $cb->id) }}"
                             class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">
                             <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
                                 height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -117,7 +116,7 @@
                             </svg>
 
                             <span class="sr-only">Icon description</span>
-                        </button>
+                        </a>
                         <button type="button" data-modal-target="delete-modal-{{ $cb->id }}"
                             data-modal-toggle="delete-modal-{{ $cb->id }}"
                             class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
@@ -158,14 +157,14 @@
                                 <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Apa kamu yakin ingin
                                     menghapus
                                     data ini?</h3>
-                                {{-- <form action="{{ route('cb-nasional', $cb->id) }}" method="POST">
+                                <form action="{{ route('cb.destroy', $cb->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit"
                                         class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
                                         Iya
                                     </button>
-                                </form> --}}
+                                </form>
                                 <button data-modal-hide="delete-modal-{{ $cb->id }}" type="button"
                                     class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Tidak</button>
                             </div>

@@ -31,4 +31,28 @@ class CagarBudayaController extends Controller
         flash()->success("Data berhasil ditambahkan.");
         return redirect()->route("bengkulu.cb-nasional");
     }
+
+    public function edit(CagarBudaya $cb)
+    {
+        $jenis = Jenis::latest()->get();
+        $status = Status::latest()->get();
+
+        return view("bengkulu.cagar-budaya.nasional.edit", compact("cb", "jenis", "status"));
+    }
+
+    public function update(CagarBudaya $cb, Request $request)
+    {
+        $cb->update($request->all());
+
+        flash()->success("Data berhasil diubah.");
+        return redirect()->route("bengkulu.cb-nasional");
+    }
+
+    public function destroy(CagarBudaya $cb)
+    {
+        $cb->delete();
+
+        flash()->success("Data berhasil dihapus.");
+        return redirect()->back();
+    }
 }

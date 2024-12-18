@@ -11,12 +11,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [DashboardController::class, "index"])->name("dashboard.index");
 Route::get('/dashboard', [DashboardController::class, "index"])->name("dashboard.index");
 Route::post("/cb/store", [CagarBudayaController::class, "store"])->name("cb.store");
+Route::delete("/cb/{cb}/destroy", [CagarBudayaController::class, "destroy"])->name("cb.destroy");
+Route::patch("/cb/{cb}/update", [CagarBudayaController::class, "update"])->name("cb.update");
 
 Route::prefix("bengkulu")->group(function () {
 
     Route::prefix("cb-nasional")->group(function () {
         Route::get("/", [CagarBudayaController::class, "nasional"])->name("bengkulu.cb-nasional");
         Route::get("/create", [CagarBudayaController::class, "create"])->name("bengkulu.cb-nasional.create");
+        Route::get("/{cb}/edit", [CagarBudayaController::class, "edit"])->name("bengkulu.cb-nasional.edit");
     });
 });
 
