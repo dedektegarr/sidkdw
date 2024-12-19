@@ -36,7 +36,7 @@
                     </svg>
                     <span class="sr-only">Toggle dark/light mode</span>
                 </button>
-                <div class="flex items-center ms-3">
+                {{-- <div class="flex items-center ms-3">
                     <div>
                         <button type="button"
                             class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
@@ -79,7 +79,7 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
