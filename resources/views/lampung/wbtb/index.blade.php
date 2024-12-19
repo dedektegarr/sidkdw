@@ -89,7 +89,7 @@
                     <td>{{ $wbtb->no_daftar }}</td>
                     <td>{{ $wbtb->tahun }}</td>
                     <td>{{ $wbtb->sebaran }}</td>
-                    <td>{{ $wbtb->domain->nama }}</td>
+                    <td>{{ $wbtb->domain->nama ?? '-' }}</td>
                     <td>{{ $wbtb->keterangan }}</td>
                     <td>
                         <a href="{{ route('lampung.wbtb.edit', $wbtb->id) }}"

@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DomainController;
 use App\Http\Controllers\ImportController;
 use App\Http\Controllers\JenisController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\WbtbController;
 use Illuminate\Support\Facades\Http;
@@ -97,6 +98,14 @@ Route::prefix("lampung")->group(function () {
     });
 });
 
+Route::prefix("laporan")->group(function () {
+    Route::get("/cagar-budaya", [LaporanController::class, "laporanCb"])->name("laporan.cb");
+    Route::get("/cagar-budaya/export", [LaporanController::class, "laporanCbExport"])->name("laporan.cb.export");
+
+    Route::get("/wbtb", [LaporanController::class, "laporanWbtb"])->name("laporan.wbtb");
+    Route::get("/wbtb/export", [LaporanController::class, "laporanWbtbExport"])->name("laporan.wbtb.export");
+});
+
 // MASTER DATA
 Route::prefix("data-master")->group(function () {
     Route::get("/jenis-cb", [JenisController::class, "index"])->name("jenis.index");
@@ -117,4 +126,8 @@ Route::prefix("data-master")->group(function () {
 
 Route::prefix("import")->group(function () {
     Route::get("/cagar-budaya", [ImportController::class, "cagarBudaya"])->name("import.cb");
+    Route::post("/cagar-budaya", [ImportController::class, "cagarBudayaUpload"])->name("import.cb.upload");
+
+    Route::get("/wbtb", [ImportController::class, "wbtb"])->name("import.wbtb");
+    Route::post("/wbtb", [ImportController::class, "wbtbUpload"])->name("import.wbtb.upload");
 });

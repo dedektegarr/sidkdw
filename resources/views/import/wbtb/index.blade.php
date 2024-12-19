@@ -1,9 +1,9 @@
 @extends('layouts.main')
-@section('page', 'Import Data CB')
+@section('page', 'Import Data WBTB')
 {{-- @section('breadcrumbs', Breadcrumbs::render('domain')) --}}
 @section('content')
     <div class="max-w-lg mx-auto">
-        <form action="{{ route('import.cb.upload') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('import.wbtb.upload') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="default_size">Upload File</label>
             <input

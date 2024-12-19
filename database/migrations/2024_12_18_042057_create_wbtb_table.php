@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('wbtb', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("domain_id")->constrained("domain")->onDelete("cascade")->onUpdate("cascade");
+            $table->foreignId("domain_id")->nullable()->constrained("domain")->onDelete("cascade")->onUpdate("cascade");
             $table->string("nama_karya");
-            $table->integer("no_daftar")->nullable();
+            $table->string("no_daftar")->nullable();
             $table->string("tahun");
             $table->string("sebaran");
             $table->string("keterangan");
